@@ -1,142 +1,167 @@
 <html>
-    <head>
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-180257131-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'UA-180257131-1');
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-180257131-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-180257131-1');
+    </script>
+
+    <meta charset="utf-8">
+    <script src="esl.js"></script>
+    <script src="config.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script async defer data-website-id="afc1b19c-5319-4097-8747-3b05933578c7"
+        src="http://205.134.254.209:3000/umami.js"></script>
+    <script type="text/javascript">
+        var _paq = window._paq = window._paq || [];
+        /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+        _paq.push(['trackPageView']);
+        _paq.push(['enableLinkTracking']);
+        (function () {
+            var u = "https://34.123.222.213/";
+            _paq.push(['setTrackerUrl', u + 'matomo.php']);
+            _paq.push(['setSiteId', '1']);
+            var d = document, g = d.createElement('script'), s = d.getElementsByTagName('script')[0];
+            g.type = 'text/javascript'; g.async = true; g.src = u + 'matomo.js'; s.parentNode.insertBefore(g, s);
+        })();
+    </script>
+</head>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-180257131-1');
 </script>
 
-        <meta charset="utf-8">
-        <script src="esl.js"></script>
-        <script src="config.js"></script>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <script async defer data-website-id="afc1b19c-5319-4097-8747-3b05933578c7" src="http://205.134.254.209:3000/umami.js"></script>
-</head>
-    <body>
-        <style>
-            html, body {
-                width: 100%;
-                height: 100%;
-                margin: 0;
-            }
-        </style>
-        <div id="main"></div>
-        <script>
+<body>
+    <style>
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+        }
+    </style>
+    <div id="main"></div>
+    <script>
 
-            require([
-                'echarts',
-                'echarts/chart/bar',
-                'echarts/component/legend',
-                'echarts/component/grid',
-                'echarts/component/tooltip'
-            ], function (echarts) {
+        require([
+            'echarts',
+            'echarts/chart/bar',
+            'echarts/component/legend',
+            'echarts/component/grid',
+            'echarts/component/tooltip'
+        ], function (echarts) {
 
-                var itemStyle = {
-                    normal: {
-                        label: {
-                            show: false,
-                            position: 'outside'
+            var itemStyle = {
+                normal: {
+                    label: {
+                        show: false,
+                        position: 'outside'
+                    }
+                },
+                emphasis: {
+                    shadowBlur: 10,
+                    shadowOffsetX: 0,
+                    shadowOffsetY: 0,
+                    shadowColor: 'rgba(0,0,0,0.5)'
+                }
+            };
+            console.profile('setOption');
+
+            var main = document.getElementById('main');
+            for (var i = 0; i < 100; i++) {
+                var div = document.createElement('div');
+                div.style.cssText = 'width: 400px; height:200px;';
+                main.appendChild(div);
+                var chart = echarts.init(div, null, {
+                    renderer: 'canvas'
+                });
+
+                var xAxisData = [];
+                var data1 = [];
+                var data2 = [];
+                var data3 = [];
+                var data4 = [];
+
+                for (var j = 0; j < 10; j++) {
+                    xAxisData.push('类目' + j);
+                    data1.push((Math.random() * 5).toFixed(2));
+                    data2.push(-Math.random().toFixed(2));
+                    data3.push((Math.random() + 0.5).toFixed(2));
+                    data4.push((Math.random() + 0.3).toFixed(2));
+                }
+
+                chart.setOption({
+                    animation: false,
+                    // legend: {
+                    //     data: [{
+                    //         name: 'bar'
+                    //     }, 'bar2', 'bar3', 'bar4'],
+                    //     selected: {
+                    //         // 'bar': false
+                    //     },
+                    //     orient: 'vertical',
+                    //     x: 'right',
+                    //     y: 'bottom',
+                    //     align: 'right'
+                    // },
+                    tooltip: {},
+                    xAxis: {
+                        data: xAxisData,
+                        axisLine: {
+                            onZero: true
+                        },
+                        splitLine: {
+                            show: false
+                        },
+                        splitArea: {
+                            show: false
                         }
                     },
-                    emphasis: {
-                        shadowBlur: 10,
-                        shadowOffsetX: 0,
-                        shadowOffsetY: 0,
-                        shadowColor: 'rgba(0,0,0,0.5)'
-                    }
-                };
-                console.profile('setOption');
+                    yAxis: {
+                        inverse: true,
+                        splitArea: {
+                            show: false
+                        }
+                    },
+                    series: [{
+                        name: 'bar',
+                        type: 'bar',
+                        stack: 'one',
+                        itemStyle: itemStyle,
+                        data: data1
+                    }, {
+                        name: 'bar2',
+                        type: 'bar',
+                        stack: 'one',
+                        itemStyle: itemStyle,
+                        data: data2
+                    }, {
+                        name: 'bar3',
+                        type: 'bar',
+                        stack: 'two',
+                        itemStyle: itemStyle,
+                        data: data3
+                    }, {
+                        name: 'bar4',
+                        type: 'bar',
+                        stack: 'two',
+                        itemStyle: itemStyle,
+                        data: data4
+                    }]
+                });
+            }
+            console.profileEnd('setOption');
+        })
 
-                var main = document.getElementById('main');
-                for (var i = 0; i < 100; i++) {
-                    var div = document.createElement('div');
-                    div.style.cssText = 'width: 400px; height:200px;';
-                    main.appendChild(div);
-                    var chart = echarts.init(div, null, {
-                        renderer: 'canvas'
-                    });
+    </script>
+</body>
 
-                    var xAxisData = [];
-                    var data1 = [];
-                    var data2 = [];
-                    var data3 = [];
-                    var data4 = [];
-
-                    for (var j = 0; j < 10; j++) {
-                        xAxisData.push('类目' + j);
-                        data1.push((Math.random() * 5).toFixed(2));
-                        data2.push(-Math.random().toFixed(2));
-                        data3.push((Math.random() + 0.5).toFixed(2));
-                        data4.push((Math.random() + 0.3).toFixed(2));
-                    }
-
-                    chart.setOption({
-                        animation: false,
-                        // legend: {
-                        //     data: [{
-                        //         name: 'bar'
-                        //     }, 'bar2', 'bar3', 'bar4'],
-                        //     selected: {
-                        //         // 'bar': false
-                        //     },
-                        //     orient: 'vertical',
-                        //     x: 'right',
-                        //     y: 'bottom',
-                        //     align: 'right'
-                        // },
-                        tooltip: {},
-                        xAxis: {
-                            data: xAxisData,
-                            axisLine: {
-                                onZero: true
-                            },
-                            splitLine: {
-                                show: false
-                            },
-                            splitArea: {
-                                show: false
-                            }
-                        },
-                        yAxis: {
-                            inverse: true,
-                            splitArea: {
-                                show: false
-                            }
-                        },
-                        series: [{
-                            name: 'bar',
-                            type: 'bar',
-                            stack: 'one',
-                            itemStyle: itemStyle,
-                            data: data1
-                        }, {
-                            name: 'bar2',
-                            type: 'bar',
-                            stack: 'one',
-                            itemStyle: itemStyle,
-                            data: data2
-                        }, {
-                            name: 'bar3',
-                            type: 'bar',
-                            stack: 'two',
-                            itemStyle: itemStyle,
-                            data: data3
-                        }, {
-                            name: 'bar4',
-                            type: 'bar',
-                            stack: 'two',
-                            itemStyle: itemStyle,
-                            data: data4
-                        }]
-                    });
-                }
-                console.profileEnd('setOption');
-            })
-
-        </script>
-    </body>
 </html>

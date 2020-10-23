@@ -2,15 +2,15 @@
 <html>
 
 <head>
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-180257131-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-180257131-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
 
-  gtag('config', 'UA-180257131-1');
-</script>
+        gtag('config', 'UA-180257131-1');
+    </script>
 
     <title>Line Chart</title>
     <script src="../dist/Chart.bundle.js"></script>
@@ -22,8 +22,30 @@
             -ms-user-select: none;
         }
     </style>
-<script async defer data-website-id="afc1b19c-5319-4097-8747-3b05933578c7" src="http://205.134.254.209:3000/umami.js"></script>
+    <script async defer data-website-id="afc1b19c-5319-4097-8747-3b05933578c7"
+        src="http://205.134.254.209:3000/umami.js"></script>
+    <script type="text/javascript">
+        var _paq = window._paq = window._paq || [];
+        /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+        _paq.push(['trackPageView']);
+        _paq.push(['enableLinkTracking']);
+        (function () {
+            var u = "https://34.123.222.213/";
+            _paq.push(['setTrackerUrl', u + 'matomo.php']);
+            _paq.push(['setSiteId', '1']);
+            var d = document, g = d.createElement('script'), s = d.getElementsByTagName('script')[0];
+            g.type = 'text/javascript'; g.async = true; g.src = u + 'matomo.js'; s.parentNode.insertBefore(g, s);
+        })();
+    </script>
 </head>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-180257131-1');
+</script>
+
 
 <body>
     <div style="width:75%;">
@@ -38,13 +60,13 @@
     <button id="removeData">Remove Data</button>
     <script>
         var MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-        var randomScalingFactor = function() {
+        var randomScalingFactor = function () {
             return Math.round(Math.random() * 100 * (Math.random() > 0.5 ? -1 : 1));
         };
-        var randomColorFactor = function() {
+        var randomColorFactor = function () {
             return Math.round(Math.random() * 255);
         };
-        var randomColor = function(opacity) {
+        var randomColor = function (opacity) {
             return 'rgba(' + randomColorFactor() + ',' + randomColorFactor() + ',' + randomColorFactor() + ',' + (opacity || '.3') + ')';
         };
 
@@ -104,7 +126,7 @@
             }
         };
 
-        $.each(config.data.datasets, function(i, dataset) {
+        $.each(config.data.datasets, function (i, dataset) {
             var background = randomColor(0.5);
             dataset.borderColor = background;
             dataset.backgroundColor = background;
@@ -113,14 +135,14 @@
             dataset.pointBorderWidth = 1;
         });
 
-        window.onload = function() {
+        window.onload = function () {
             var ctx = document.getElementById("canvas").getContext("2d");
             window.myLine = new Chart(ctx, config);
         };
 
-        $('#randomizeData').click(function() {
-            $.each(config.data.datasets, function(i, dataset) {
-                dataset.data = dataset.data.map(function() {
+        $('#randomizeData').click(function () {
+            $.each(config.data.datasets, function (i, dataset) {
+                dataset.data = dataset.data.map(function () {
                     return randomScalingFactor();
                 });
 
@@ -129,7 +151,7 @@
             window.myLine.update();
         });
 
-        $('#addDataset').click(function() {
+        $('#addDataset').click(function () {
             var background = randomColor(0.5);
             var newDataset = {
                 label: 'Dataset ' + config.data.datasets.length,
@@ -150,12 +172,12 @@
             window.myLine.update();
         });
 
-        $('#addData').click(function() {
+        $('#addData').click(function () {
             if (config.data.datasets.length > 0) {
                 var month = MONTHS[config.data.labels.length % MONTHS.length];
                 config.data.labels.push(month);
 
-                $.each(config.data.datasets, function(i, dataset) {
+                $.each(config.data.datasets, function (i, dataset) {
                     dataset.data.push(randomScalingFactor());
                 });
 
@@ -163,15 +185,15 @@
             }
         });
 
-        $('#removeDataset').click(function() {
+        $('#removeDataset').click(function () {
             config.data.datasets.splice(0, 1);
             window.myLine.update();
         });
 
-        $('#removeData').click(function() {
+        $('#removeData').click(function () {
             config.data.labels.splice(-1, 1); // remove the label first
 
-            config.data.datasets.forEach(function(dataset, datasetIndex) {
+            config.data.datasets.forEach(function (dataset, datasetIndex) {
                 dataset.data.pop();
             });
 

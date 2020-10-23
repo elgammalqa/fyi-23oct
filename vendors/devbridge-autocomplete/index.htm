@@ -1,20 +1,43 @@
 ﻿<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-180257131-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'UA-180257131-1');
-</script>
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-180257131-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-180257131-1');
+    </script>
 
     <title>DevBridge Autocomplete Demo</title>
     <link href="content/styles.css" rel="stylesheet" />
-<script async defer data-website-id="afc1b19c-5319-4097-8747-3b05933578c7" src="http://205.134.254.209:3000/umami.js"></script>
+    <script async defer data-website-id="afc1b19c-5319-4097-8747-3b05933578c7"
+        src="http://205.134.254.209:3000/umami.js"></script>
+    <script type="text/javascript">
+        var _paq = window._paq = window._paq || [];
+        /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+        _paq.push(['trackPageView']);
+        _paq.push(['enableLinkTracking']);
+        (function () {
+            var u = "https://34.123.222.213/";
+            _paq.push(['setTrackerUrl', u + 'matomo.php']);
+            _paq.push(['setSiteId', '1']);
+            var d = document, g = d.createElement('script'), s = d.getElementsByTagName('script')[0];
+            g.type = 'text/javascript'; g.async = true; g.src = u + 'matomo.js'; s.parentNode.insertBefore(g, s);
+        })();
+    </script>
 </head>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-180257131-1');
+</script>
+
 <body>
     <div class="container">
         <h1>Ajax Autocomplete Demo</h1>
@@ -22,31 +45,33 @@
         <h2>Ajax Lookup</h2>
         <p>Type country name in english:</p>
         <div style="position: relative; height: 80px;">
-            <input type="text" name="country" id="autocomplete-ajax" style="position: absolute; z-index: 2; background: transparent;"/>
-            <input type="text" name="country" id="autocomplete-ajax-x" disabled="disabled" style="color: #CCC; position: absolute; background: transparent; z-index: 1;"/>
+            <input type="text" name="country" id="autocomplete-ajax"
+                style="position: absolute; z-index: 2; background: transparent;" />
+            <input type="text" name="country" id="autocomplete-ajax-x" disabled="disabled"
+                style="color: #CCC; position: absolute; background: transparent; z-index: 1;" />
         </div>
         <div id="selction-ajax"></div>
-        
+
         <h2>Local Lookup and Grouping</h2>
         <p>Type NHL or NBA team name:</p>
         <div>
-            <input type="text" name="country" id="autocomplete"/>
+            <input type="text" name="country" id="autocomplete" />
         </div>
         <div id="selection"></div>
 
         <h2>Custom Lookup Container</h2>
         <p>Type country name in english:</p>
         <div>
-            <input type="text" name="country" id="autocomplete-custom-append" style="float: left;"/>
+            <input type="text" name="country" id="autocomplete-custom-append" style="float: left;" />
             <div id="suggestions-container" style="position: relative; float: left; width: 400px; margin: 10px;"></div>
         </div>
     </div>
-    
+
     <div style="width: 50%; margin: 0 auto; clear: both;">
         <h2>Dynamic Width</h2>
         <p>Type country name in english:</p>
         <div>
-            <input type="text" name="country" id="autocomplete-dynamic" style="width: 100%; border-width: 5px;"/>
+            <input type="text" name="country" id="autocomplete-dynamic" style="width: 100%; border-width: 5px;" />
         </div>
     </div>
 
@@ -56,4 +81,5 @@
     <script type="text/javascript" src="scripts/countries.js"></script>
     <script type="text/javascript" src="scripts/demo.js"></script>
 </body>
+
 </html>

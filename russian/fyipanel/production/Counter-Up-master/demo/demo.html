@@ -1,114 +1,150 @@
-
 <!doctype html>
 
 <html lang="en">
+
 <head>
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-180257131-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-180257131-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
 
-  gtag('config', 'UA-180257131-1');
-</script>
+        gtag('config', 'UA-180257131-1');
+    </script>
 
-  <meta charset="utf-8">
+    <meta charset="utf-8">
 
-  <title>Counter Up Demo</title>
-  <meta name="description" content="Counter Up - jQuery Plugin Demo">
-  <meta name="author" content="Benjamin Intal">
-  <link rel="author" href="https://plus.google.com/113101541449927918834"/>
-  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600' rel='stylesheet' type='text/css'>
-  <style>
-    body {
-        margin: 40px 100px 150px;
-    }
-    * {
-        font-family: 'Open Sans', sans-serif;
-        -webkit-transition: all 400ms ease;
-        -moz-transition: all 400ms ease;
-        -o-transition: all 400ms ease;
-        transition: all 400ms ease;
-        text-align: center;
-    }
-    h1, h3 {
-        font-weight: 600;
-        text-transform: uppercase;
-    }
-    h3 {
-        margin-bottom: 30px;
-        color: #999;
-    }
-    span {
-        font-size: 66px;
-        color: #555;
-        margin-bottom: 350px;
-        display: inline-block;
-        font-weight: 400;
-        text-align: center;
-    }
-    span > span {
-        margin-bottom: 0;
-    }
-    .circle {
-        background: #2980b9;
-        width: 200px;
-        line-height: 200px;
-        display: inline-block;
-        color: #fff;
-        border-radius: 100%;
-    }
-    code, code > span {
-        text-align: left;
-        display: block;
-        font-family: Monaco, monospace;
-        background: #444;
-        color: #fff;
-        padding: 20px;
-        font-size: 14px;
-        margin-bottom: 100px;
-    }
-    code > span {
-        padding: 0;
-        margin: 0;
-    }
-    @media only screen and (max-width: 1024px) {
-        span {
-            font-size: 33px;
-            margin-bottom: 200px;
+    <title>Counter Up Demo</title>
+    <meta name="description" content="Counter Up - jQuery Plugin Demo">
+    <meta name="author" content="Benjamin Intal">
+    <link rel="author" href="https://plus.google.com/113101541449927918834" />
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600' rel='stylesheet' type='text/css'>
+    <style>
+        body {
+            margin: 40px 100px 150px;
         }
-    }
-    @media only screen and (max-width: 800px) {
-        div > span {
+
+        * {
+            font-family: 'Open Sans', sans-serif;
+            -webkit-transition: all 400ms ease;
+            -moz-transition: all 400ms ease;
+            -o-transition: all 400ms ease;
+            transition: all 400ms ease;
+            text-align: center;
+        }
+
+        h1,
+        h3 {
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        h3 {
+            margin-bottom: 30px;
+            color: #999;
+        }
+
+        span {
             font-size: 66px;
+            color: #555;
+            margin-bottom: 350px;
+            display: inline-block;
+            font-weight: 400;
+            text-align: center;
+        }
+
+        span>span {
+            margin-bottom: 0;
+        }
+
+        .circle {
+            background: #2980b9;
+            width: 200px;
+            line-height: 200px;
+            display: inline-block;
+            color: #fff;
+            border-radius: 100%;
+        }
+
+        code,
+        code>span {
+            text-align: left;
             display: block;
-            width: 100% !important;
+            font-family: Monaco, monospace;
+            background: #444;
+            color: #fff;
+            padding: 20px;
+            font-size: 14px;
             margin-bottom: 100px;
         }
-        span {
-            font-size: 66px;
-        }
-        code {
-            margin-bottom: 100px;
-        }
-    }
-  </style>
 
-  <!--[if lt IE 9]>
+        code>span {
+            padding: 0;
+            margin: 0;
+        }
+
+        @media only screen and (max-width: 1024px) {
+            span {
+                font-size: 33px;
+                margin-bottom: 200px;
+            }
+        }
+
+        @media only screen and (max-width: 800px) {
+            div>span {
+                font-size: 66px;
+                display: block;
+                width: 100% !important;
+                margin-bottom: 100px;
+            }
+
+            span {
+                font-size: 66px;
+            }
+
+            code {
+                margin-bottom: 100px;
+            }
+        }
+    </style>
+
+    <!--[if lt IE 9]>
   <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-  <script>
-    jQuery(document).ready(function( $ ) {
-        $('.counter').counterUp({
-            delay: 10,
-            time: 1000
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script>
+        jQuery(document).ready(function ($) {
+            $('.counter').counterUp({
+                delay: 10,
+                time: 1000
+            });
         });
-    });
-  </script>
-<script async defer data-website-id="afc1b19c-5319-4097-8747-3b05933578c7" src="http://205.134.254.209:3000/umami.js"></script>
+    </script>
+    <script async defer data-website-id="afc1b19c-5319-4097-8747-3b05933578c7"
+        src="http://205.134.254.209:3000/umami.js"></script>
+    <script type="text/javascript">
+        var _paq = window._paq = window._paq || [];
+        /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+        _paq.push(['trackPageView']);
+        _paq.push(['enableLinkTracking']);
+        (function () {
+            var u = "https://34.123.222.213/";
+            _paq.push(['setTrackerUrl', u + 'matomo.php']);
+            _paq.push(['setSiteId', '1']);
+            var d = document, g = d.createElement('script'), s = d.getElementsByTagName('script')[0];
+            g.type = 'text/javascript'; g.async = true; g.src = u + 'matomo.js'; s.parentNode.insertBefore(g, s);
+        })();
+    </script>
 </head>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-180257131-1');
+</script>
+
 
 <body>
     <h1>Counter-Up jQuery Plugin</h1>
@@ -168,4 +204,5 @@
     <script src="http://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
     <script src="../jquery.counterup.min.js"></script>
 </body>
+
 </html>

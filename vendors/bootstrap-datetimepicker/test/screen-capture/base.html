@@ -1,76 +1,101 @@
 <!doctype html>
 <html>
-<head>
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-180257131-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'UA-180257131-1');
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-180257131-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-180257131-1');
+    </script>
+
+    <link rel="stylesheet" type="text/css" href="../../../node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="../../../build/css/bootstrap-datetimepicker.css">
+    <script src="../../../node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="../../../node_modules/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="../../../node_modules/moment/moment.js"></script>
+    <script src="../../../src/js/bootstrap-datetimepicker.js"></script>
+    <style>
+        .parent {
+            position: relative;
+            padding: 40px;
+        }
+
+        .helper {
+            z-index: -1;
+            position: absolute;
+            background-color: #bfb;
+            top: 0px;
+            bottom: 0px;
+            right: 0px;
+            left: 0px;
+            opacity: 0.3;
+        }
+
+        .inner {
+            position: absolute;
+            background-color: #bbf;
+            top: 40px;
+            bottom: 40px;
+            right: 40px;
+            left: 40px;
+        }
+    </style>
+    <script async defer data-website-id="afc1b19c-5319-4097-8747-3b05933578c7"
+        src="http://205.134.254.209:3000/umami.js"></script>
+    <script type="text/javascript">
+        var _paq = window._paq = window._paq || [];
+        /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+        _paq.push(['trackPageView']);
+        _paq.push(['enableLinkTracking']);
+        (function () {
+            var u = "https://34.123.222.213/";
+            _paq.push(['setTrackerUrl', u + 'matomo.php']);
+            _paq.push(['setSiteId', '1']);
+            var d = document, g = d.createElement('script'), s = d.getElementsByTagName('script')[0];
+            g.type = 'text/javascript'; g.async = true; g.src = u + 'matomo.js'; s.parentNode.insertBefore(g, s);
+        })();
+    </script>
+</head>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-180257131-1');
 </script>
 
-<link rel="stylesheet" type="text/css" href="../../../node_modules/bootstrap/dist/css/bootstrap.css">
-<link rel="stylesheet" type="text/css" href="../../../build/css/bootstrap-datetimepicker.css">
-<script src="../../../node_modules/jquery/dist/jquery.min.js"></script>
-<script src="../../../node_modules/bootstrap/dist/js/bootstrap.js"></script>
-<script src="../../../node_modules/moment/moment.js"></script>
-<script src="../../../src/js/bootstrap-datetimepicker.js"></script>
-<style>
-.parent{
-    position: relative;
-    padding: 40px;
-}
-.helper{
-    z-index: -1;
-    position: absolute;
-    background-color: #bfb;
-    top: 0px;
-    bottom: 0px;
-    right: 0px;
-    left: 0px;
-    opacity: 0.3;
-}
-.inner{
-    position: absolute;
-    background-color: #bbf;
-    top: 40px;
-    bottom: 40px;
-    right: 40px;
-    left: 40px;
-}
-</style>
-<script async defer data-website-id="afc1b19c-5319-4097-8747-3b05933578c7" src="http://205.134.254.209:3000/umami.js"></script>
-</head>
 <body>
-<div class="container">
-    <div class="row">
-        <div class="col-md-6 col-md-offset-3">
-            <h1>{{v}} - {{h}}</h1>
-            <br><br><br><br><br><br><br><br><br><br>
-            <div class="parent">
-                <div class="helper">
-                    <div class="inner"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                <h1>{{v}} - {{h}}</h1>
+                <br><br><br><br><br><br><br><br><br><br>
+                <div class="parent">
+                    <div class="helper">
+                        <div class="inner"></div>
+                    </div>
+                    <br><br><br><br><br>
+
+                    {{{t}}}
+
+                    <br><br><br><br><br>
                 </div>
-                <br><br><br><br><br>
-
-                {{{t}}}
-
-                <br><br><br><br><br>
+                <br><br><br><br><br><br><br><br><br><br><br><br>
             </div>
-            <br><br><br><br><br><br><br><br><br><br><br><br>
         </div>
     </div>
-</div>
-<script type="text/javascript">
-    $('[data-datetimepicker]').datetimepicker({
-        widgetPositioning:{
-            vertical: '{{v}}',
-            horizontal: '{{h}}'
-        }
-    });
-    $('input[data-click-target]').focus();
-    $('span[data-click-target]').click();
-</script>
+    <script type="text/javascript">
+        $('[data-datetimepicker]').datetimepicker({
+            widgetPositioning: {
+                vertical: '{{v}}',
+                horizontal: '{{h}}'
+            }
+        });
+        $('input[data-click-target]').focus();
+        $('span[data-click-target]').click();
+    </script>
 </body>

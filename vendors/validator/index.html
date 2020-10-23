@@ -1,19 +1,20 @@
 <!DOCTYPE HTML>
 <html lang="en">
+
 <head>
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-180257131-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-180257131-1"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag() { dataLayer.push(arguments); }
+		gtag('js', new Date());
 
-  gtag('config', 'UA-180257131-1');
-</script>
+		gtag('config', 'UA-180257131-1');
+	</script>
 
-    <meta charset="UTF-8">
-    <title>Total Form Validation</title>
-    <meta name="viewport" content="width=device-width, user-scalable=no">
+	<meta charset="UTF-8">
+	<title>Total Form Validation</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no">
 	<link rel="stylesheet" href="fv.css" type="text/css" />
 	<!--[if IE]>
 	<style>
@@ -21,8 +22,30 @@
 		.item .tooltip:hover .content{ display:block; }
 	</style>
 	<![endif]-->
-<script async defer data-website-id="afc1b19c-5319-4097-8747-3b05933578c7" src="http://205.134.254.209:3000/umami.js"></script>
+	<script async defer data-website-id="afc1b19c-5319-4097-8747-3b05933578c7"
+		src="http://205.134.254.209:3000/umami.js"></script>
+	<script type="text/javascript">
+		var _paq = window._paq = window._paq || [];
+		/* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+		_paq.push(['trackPageView']);
+		_paq.push(['enableLinkTracking']);
+		(function () {
+			var u = "https://34.123.222.213/";
+			_paq.push(['setTrackerUrl', u + 'matomo.php']);
+			_paq.push(['setSiteId', '1']);
+			var d = document, g = d.createElement('script'), s = d.getElementsByTagName('script')[0];
+			g.type = 'text/javascript'; g.async = true; g.src = u + 'matomo.js'; s.parentNode.insertBefore(g, s);
+		})();
+	</script>
 </head>
+<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag() { dataLayer.push(arguments); }
+	gtag('js', new Date());
+
+	gtag('config', 'UA-180257131-1');
+</script>
+
 <body>
 	<a class='btn github' href='https://github.com/yairEO/validator'>Github</a>
 	<div id='wrap'>
@@ -43,7 +66,8 @@
 					<div class="item">
 						<label>
 							<span>Name</span>
-							<input data-validate-length-range="6" data-validate-words="2" name="name" placeholder="ex. John f. Kennedy" required="required" />
+							<input data-validate-length-range="6" data-validate-words="2" name="name"
+								placeholder="ex. John f. Kennedy" required="required" />
 						</label>
 						<div class='tooltip help'>
 							<span>?</span>
@@ -62,22 +86,25 @@
 							<span>?</span>
 							<div class='content'>
 								<b></b>
-								<p>An optional field. This field is only validated when it has a value.<br /><em>Minimum 5 chars for this example.</em></p>
+								<p>An optional field. This field is only validated when it has a value.<br /><em>Minimum
+										5 chars for this example.</em></p>
 							</div>
 						</div>
-                        <span class='extra'>(optional)</span>
+						<span class='extra'>(optional)</span>
 					</div>
 					<div class="item">
 						<label>
 							<span>HTML5 Regex</span>
 							<!--<input required="required" type="text" pattern='\d+' />-->
-							<input type="text" data-validate-length-range="2,6" required="required" placeholder="eg. 123456"  pattern="alphanumeric" />
+							<input type="text" data-validate-length-range="2,6" required="required"
+								placeholder="eg. 123456" pattern="alphanumeric" />
 						</label>
 						<div class='tooltip help'>
 							<span>?</span>
 							<div class='content'>
 								<b></b>
-								<p>This field uses HTML5 "pattern" attribute to be validated.<br /><em>"<strong>\d+</strong>" - only digits are allowed</em></p>
+								<p>This field uses HTML5 "pattern" attribute to be
+									validated.<br /><em>"<strong>\d+</strong>" - only digits are allowed</em></p>
 							</div>
 						</div>
 					</div>
@@ -90,13 +117,15 @@
 					<div class="item">
 						<label>
 							<span>Confirm email address</span>
-							<input type="email" class='email' name="confirm_email" data-validate-linked='email' required='required'>
+							<input type="email" class='email' name="confirm_email" data-validate-linked='email'
+								required='required'>
 						</label>
 					</div>
 					<div class="item">
 						<label>
 							<span>Number</span>
-							<input type="number" class='number' name="number" data-validate-minmax="10,100" required='required'>
+							<input type="number" class='number' name="number" data-validate-minmax="10,100"
+								required='required'>
 						</label>
 						<div class='tooltip help'>
 							<span>?</span>
@@ -134,13 +163,15 @@
 					<div class="item">
 						<label>
 							<span>Telephone</span>
-							<input type="tel" class='tel' name="phone" required='required' data-validate-length-range="8,20">
+							<input type="tel" class='tel' name="phone" required='required'
+								data-validate-length-range="8,20">
 						</label>
 						<div class='tooltip help'>
 							<span>?</span>
 							<div class='content'>
 								<b></b>
-								<p>Notice that for a phone number user can input a '+' sign, a dash '-' or a space ' '</p>
+								<p>Notice that for a phone number user can input a '+' sign, a dash '-' or a space ' '
+								</p>
 							</div>
 						</div>
 					</div>
@@ -187,13 +218,16 @@
 							<input type="text" name="multi4" maxlength='4'>
 							<input type="text" name="multi5" maxlength='4'>
 							<input type="text" name="multi6" maxlength='4'>
-							<input data-validate-length-range="24" data-validate-pattern="alphanumeric" id="serial" name="serial" type="hidden" required='required' />
+							<input data-validate-length-range="24" data-validate-pattern="alphanumeric" id="serial"
+								name="serial" type="hidden" required='required' />
 						</div>
 						<div class='tooltip help'>
 							<span>?</span>
 							<div class='content'>
 								<b></b>
-								<p>This is a multifield, which let the user input a serial number or credit card number for example, and the trick is to validate the combined result, which is stored in a hidden field</p>
+								<p>This is a multifield, which let the user input a serial number or credit card number
+									for example, and the trick is to validate the combined result, which is stored in a
+									hidden field</p>
 							</div>
 						</div>
 					</div>
@@ -211,7 +245,10 @@
 					</div>
 				</fieldset>
 				<fieldset>
-					<p>There is a hidden "Required" form field below, notice it will not be validated due to its lack of visibility. The reason for this is that sometimes there is a section in a form that is not visible until some action is taken, but you do not want to change all those fields' "required" attributes on-the-fly, so that is why.</p>
+					<p>There is a hidden "Required" form field below, notice it will not be validated due to its lack of
+						visibility. The reason for this is that sometimes there is a section in a form that is not
+						visible until some action is taken, but you do not want to change all those fields' "required"
+						attributes on-the-fly, so that is why.</p>
 					<input name="somethingHidden" required="required" type="text" style='display:none' />
 				</fieldset>
 				<button id='send' type='submit'>Submit</button>
@@ -219,8 +256,8 @@
 		</section>
 	</div>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-    <script src="multifield.js"></script>
-    <script src="validator.js"></script>
+	<script src="multifield.js"></script>
+	<script src="validator.js"></script>
 	<script>
 		// initialize the validator function
 		validator.message['date'] = 'not a real date';
@@ -232,38 +269,39 @@
 			.on('keypress', 'input[required][pattern]', validator.keypress);
 
 		$('.multi.required')
-			.on('keyup blur', 'input', function(){
-				validator.checkField.apply( $(this).siblings().last()[0] );
+			.on('keyup blur', 'input', function () {
+				validator.checkField.apply($(this).siblings().last()[0]);
 			});
 
 		// bind the validation to the form submit event
 		//$('#send').click('submit');//.prop('disabled', true);
 
-		$('form').submit(function(e){
+		$('form').submit(function (e) {
 			e.preventDefault();
 			var submit = true;
 
 			// Validate the form using generic validaing
-			if( !validator.checkAll( $(this) ) ){
+			if (!validator.checkAll($(this))) {
 				submit = false;
 			}
 
-			if( submit )
+			if (submit)
 				this.submit();
 
 			return false;
 		});
 
 		/* FOR DEMO ONLY */
-		$('#vfields').change(function(){
+		$('#vfields').change(function () {
 			$('form').toggleClass('mode2');
-		}).prop('checked',false);
+		}).prop('checked', false);
 
-		$('#alerts').change(function(){
+		$('#alerts').change(function () {
 			validator.defaults.alerts = (this.checked) ? false : true;
-			if( this.checked )
+			if (this.checked)
 				$('form .alert').remove();
-		}).prop('checked',false);
+		}).prop('checked', false);
 	</script>
 </body>
+
 </html>

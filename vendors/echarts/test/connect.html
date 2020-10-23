@@ -1,174 +1,202 @@
 <html>
-    <head>
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-180257131-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'UA-180257131-1');
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-180257131-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-180257131-1');
+    </script>
+
+    <meta charset="utf-8">
+    <script src="esl.js"></script>
+    <script src="config.js"></script>
+    <script async defer data-website-id="afc1b19c-5319-4097-8747-3b05933578c7"
+        src="http://205.134.254.209:3000/umami.js"></script>
+    <script type="text/javascript">
+        var _paq = window._paq = window._paq || [];
+        /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+        _paq.push(['trackPageView']);
+        _paq.push(['enableLinkTracking']);
+        (function () {
+            var u = "https://34.123.222.213/";
+            _paq.push(['setTrackerUrl', u + 'matomo.php']);
+            _paq.push(['setSiteId', '1']);
+            var d = document, g = d.createElement('script'), s = d.getElementsByTagName('script')[0];
+            g.type = 'text/javascript'; g.async = true; g.src = u + 'matomo.js'; s.parentNode.insertBefore(g, s);
+        })();
+    </script>
+</head>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-180257131-1');
 </script>
 
-        <meta charset="utf-8">
-        <script src="esl.js"></script>
-        <script src="config.js"></script>
-    <script async defer data-website-id="afc1b19c-5319-4097-8747-3b05933578c7" src="http://205.134.254.209:3000/umami.js"></script>
-</head>
-    <body>
-        <style>
-            html, body, #main {
-                width: 100%;
-                height: 100%;
-                margin: 0;
+<body>
+    <style>
+        html,
+        body,
+        #main {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+        }
+
+        #chart1,
+        #chart2 {
+            width: 50%;
+            height: 100%;
+            float: left;
+        }
+    </style>
+    <div id="main">
+        <div id="chart1"></div>
+        <div id="chart2"></div>
+    </div>
+    <script>
+
+
+        require([
+            'echarts',
+            'echarts/chart/scatter',
+            'echarts/component/legend',
+            'echarts/component/grid',
+            'echarts/component/visualMap',
+            'echarts/component/tooltip'
+        ], function (echarts) {
+
+            var chart1 = echarts.init(document.getElementById('chart1'));
+            var chart2 = echarts.init(document.getElementById('chart2'));
+
+            var data1 = [];
+
+            var symbolCount = 6;
+
+            for (var i = 0; i < 100; i++) {
+                data1.push([
+                    Math.random() * 5,
+                    Math.random() * 4,
+                    Math.random() * 20,
+                    Math.round(Math.random() * (symbolCount - 1))
+                ]);
             }
-            #chart1, #chart2 {
-                width: 50%;
-                height: 100%;
-                float: left;
-            }
-        </style>
-        <div id="main">
-            <div id="chart1"></div>
-            <div id="chart2"></div>
-        </div>
-        <script>
 
-
-            require([
-                'echarts',
-                'echarts/chart/scatter',
-                'echarts/component/legend',
-                'echarts/component/grid',
-                'echarts/component/visualMap',
-                'echarts/component/tooltip'
-            ], function (echarts) {
-
-                var chart1 = echarts.init(document.getElementById('chart1'));
-                var chart2 = echarts.init(document.getElementById('chart2'));
-
-                var data1 = [];
-
-                var symbolCount = 6;
-
-                for (var i = 0; i < 100; i++) {
-                    data1.push([
-                        Math.random() * 5,
-                        Math.random() * 4,
-                        Math.random() * 20,
-                        Math.round(Math.random() * (symbolCount - 1))
-                    ]);
-                }
-
-                chart1.setOption({
-                    legend: {
-                        top: 50,
-                        data: ['scatter']
-                    },
-                    tooltip: {
-                        formatter: '{c}'
-                    },
-                    grid: {
-                        top: '26%',
-                        bottom: '26%'
-                    },
-                    xAxis: {
-                        type: 'value',
-                        splitLine: {
-                            show: false
+            chart1.setOption({
+                legend: {
+                    top: 50,
+                    data: ['scatter']
+                },
+                tooltip: {
+                    formatter: '{c}'
+                },
+                grid: {
+                    top: '26%',
+                    bottom: '26%'
+                },
+                xAxis: {
+                    type: 'value',
+                    splitLine: {
+                        show: false
+                    }
+                },
+                yAxis: {
+                    type: 'value',
+                    splitLine: {
+                        show: false
+                    }
+                },
+                visualMap: [
+                    {
+                        realtime: false,
+                        left: 'right',
+                        // selectedMode: 'single',
+                        selectedMode: 'multiple',
+                        backgroundColor: '#eee',
+                        dimension: 2,
+                        selected: [],
+                        min: 0,
+                        max: 24,
+                        precision: 0,
+                        splitNumber: 0,
+                        calculable: true,
+                        inRange: { // visual for short cut
+                            color: ['#006edd', '#e0ffff']
                         }
-                    },
-                    yAxis: {
-                        type: 'value',
-                        splitLine: {
-                            show: false
-                        }
-                    },
-                    visualMap: [
-                        {
-                            realtime: false,
-                            left: 'right',
-                            // selectedMode: 'single',
-                            selectedMode: 'multiple',
-                            backgroundColor: '#eee',
-                            dimension: 2,
-                            selected: [],
-                            min: 0,
-                            max: 24,
-                            precision: 0,
-                            splitNumber: 0,
-                            calculable: true,
-                            inRange: { // visual for short cut
-                                color: ['#006edd', '#e0ffff']
-                            }
-                        }
-                    ],
-                    series: [
-                        {
-                            name: 'scatter',
-                            type: 'scatter',
-                            symbolSize: 30,
-                            data: data1
-                        }
-                    ]
-                });
-
-                chart2.setOption({
-                    legend: {
-                        top: 50,
-                        data: ['scatter']
-                    },
-                    tooltip: {
-                        formatter: '{c}'
-                    },
-                    grid: {
-                        top: '26%',
-                        bottom: '26%'
-                    },
-                    xAxis: {
-                        type: 'value',
-                        splitLine: {
-                            show: false
-                        }
-                    },
-                    yAxis: {
-                        type: 'value',
-                        splitLine: {
-                            show: false
-                        }
-                    },
-                    visualMap: [
-                        {
-                            left: 'right',
-                            // selectedMode: 'single',
-                            selectedMode: 'multiple',
-                            backgroundColor: '#eee',
-                            dimension: 2,
-                            selected: [],
-                            min: 0,
-                            max: 24,
-                            precision: 0,
-                            splitNumber: 0,
-                            calculable: true,
-                            inRange: { // visual for short cut
-                                color: ['#006edd', '#e0ffff']
-                            }
-                        }
-                    ],
-                    series: [
-                        {
-                            name: 'scatter',
-                            type: 'scatter',
-                            symbolSize: 30,
-                            data: data1
-                        }
-                    ]
-                });
-
-                echarts.connect([chart1, chart2]);
-
+                    }
+                ],
+                series: [
+                    {
+                        name: 'scatter',
+                        type: 'scatter',
+                        symbolSize: 30,
+                        data: data1
+                    }
+                ]
             });
 
-        </script>
-    </body>
+            chart2.setOption({
+                legend: {
+                    top: 50,
+                    data: ['scatter']
+                },
+                tooltip: {
+                    formatter: '{c}'
+                },
+                grid: {
+                    top: '26%',
+                    bottom: '26%'
+                },
+                xAxis: {
+                    type: 'value',
+                    splitLine: {
+                        show: false
+                    }
+                },
+                yAxis: {
+                    type: 'value',
+                    splitLine: {
+                        show: false
+                    }
+                },
+                visualMap: [
+                    {
+                        left: 'right',
+                        // selectedMode: 'single',
+                        selectedMode: 'multiple',
+                        backgroundColor: '#eee',
+                        dimension: 2,
+                        selected: [],
+                        min: 0,
+                        max: 24,
+                        precision: 0,
+                        splitNumber: 0,
+                        calculable: true,
+                        inRange: { // visual for short cut
+                            color: ['#006edd', '#e0ffff']
+                        }
+                    }
+                ],
+                series: [
+                    {
+                        name: 'scatter',
+                        type: 'scatter',
+                        symbolSize: 30,
+                        data: data1
+                    }
+                ]
+            });
+
+            echarts.connect([chart1, chart2]);
+
+        });
+
+    </script>
+</body>
+
 </html>

@@ -1,132 +1,158 @@
 <html>
-    <head>
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-180257131-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'UA-180257131-1');
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-180257131-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-180257131-1');
+    </script>
+
+    <meta charset="utf-8">
+    <script src="esl.js"></script>
+    <script src="config.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script async defer data-website-id="afc1b19c-5319-4097-8747-3b05933578c7"
+        src="http://205.134.254.209:3000/umami.js"></script>
+    <script type="text/javascript">
+        var _paq = window._paq = window._paq || [];
+        /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+        _paq.push(['trackPageView']);
+        _paq.push(['enableLinkTracking']);
+        (function () {
+            var u = "https://34.123.222.213/";
+            _paq.push(['setTrackerUrl', u + 'matomo.php']);
+            _paq.push(['setSiteId', '1']);
+            var d = document, g = d.createElement('script'), s = d.getElementsByTagName('script')[0];
+            g.type = 'text/javascript'; g.async = true; g.src = u + 'matomo.js'; s.parentNode.insertBefore(g, s);
+        })();
+    </script>
+</head>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-180257131-1');
 </script>
 
-        <meta charset="utf-8">
-        <script src="esl.js"></script>
-        <script src="config.js"></script>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <script async defer data-website-id="afc1b19c-5319-4097-8747-3b05933578c7" src="http://205.134.254.209:3000/umami.js"></script>
-</head>
-    <body>
-        <style>
-            html, body, #main {
-                width: 100%;
-                height: 100%;
+<body>
+    <style>
+        html,
+        body,
+        #main {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+    <div id="main"></div>
+    <script>
+
+        require([
+            'echarts',
+            'echarts/chart/line',
+            'echarts/component/legend',
+            'echarts/component/grid'
+        ], function (echarts) {
+
+            function randomData() {
+                return (Math.random() + 3).toFixed(3);
             }
-        </style>
-        <div id="main"></div>
-        <script>
 
-            require([
-                'echarts',
-                'echarts/chart/line',
-                'echarts/component/legend',
-                'echarts/component/grid'
-            ], function (echarts) {
+            var chart = echarts.init(document.getElementById('main'), null, {
+                renderer: 'canvas'
+            });
 
-                function randomData() {
-                    return (Math.random() + 3).toFixed(3);
-                }
+            var xAxisData = [];
+            var data1 = [];
+            var data2 = [];
+            var count = 0;
+            for (; count < 500; count++) {
+                xAxisData.push('类目' + count);
+                data1.push(randomData());
+                // data2.push(-randomData());
+            }
 
-                var chart = echarts.init(document.getElementById('main'), null, {
-                    renderer: 'canvas'
-                });
-
-                var xAxisData = [];
-                var data1 = [];
-                var data2 = [];
-                var count = 0;
-                for (; count < 500; count++) {
-                    xAxisData.push('类目' + count);
-                    data1.push(randomData());
-                    // data2.push(-randomData());
-                }
-
-                var itemStyle = {
-                    normal: {
-                        borderColor: 'white',
-                        borderWidth: 3,
+            var itemStyle = {
+                normal: {
+                    borderColor: 'white',
+                    borderWidth: 3,
+                    // shadowBlur: 10,
+                    // shadowOffsetX: 0,
+                    // shadowOffsetY: 5,
+                    // shadowColor: 'rgba(0, 0, 0, 0.4)',
+                    lineStyle: {
+                        width: 2
                         // shadowBlur: 10,
                         // shadowOffsetX: 0,
                         // shadowOffsetY: 5,
-                        // shadowColor: 'rgba(0, 0, 0, 0.4)',
-                        lineStyle: {
-                            width: 2
-                            // shadowBlur: 10,
-                            // shadowOffsetX: 0,
-                            // shadowOffsetY: 5,
-                            // shadowColor: 'rgba(0, 0, 0, 0.4)'
-                        },
-                        areaStyle: {
+                        // shadowColor: 'rgba(0, 0, 0, 0.4)'
+                    },
+                    areaStyle: {
 
-                        }
                     }
-                };
+                }
+            };
 
+            chart.setOption({
+                legend: {
+                    data: ['line', 'line2']
+                },
+                tooltip: {
+                    trigger: 'axis',
+                    axisPointer: {
+                        type: 'line'
+                    }
+                },
+                // animation: false,
+                xAxis: {
+                    axisLabel: {
+                        interval: 40
+                    },
+                    data: xAxisData,
+                    boundaryGap: false
+                },
+                yAxis: {
+                    scale: true,
+                    splitLine: {
+                        // show: false
+                    }
+                },
+                series: [{
+                    name: 'line',
+                    type: 'line',
+                    stack: 'all',
+                    symbol: 'none',
+                    symbolSize: 10,
+                    data: data1,
+                    itemStyle: itemStyle
+                }]
+            });
+
+            setInterval(function () {
+                for (var i = 0; i < 5; i++) {
+                    xAxisData.shift();
+                    xAxisData.push('类目' + count);
+                    data1.shift();
+                    data1.push(randomData());
+                    count++;
+                }
                 chart.setOption({
-                    legend: {
-                        data: ['line', 'line2']
-                    },
-                    tooltip: {
-                        trigger: 'axis',
-                        axisPointer: {
-                            type: 'line'
-                        }
-                    },
-                    // animation: false,
                     xAxis: {
-                        axisLabel: {
-                            interval: 40
-                        },
-                        data: xAxisData,
-                        boundaryGap: false
-                    },
-                    yAxis: {
-                        scale: true,
-                        splitLine: {
-                            // show: false
-                        }
+                        data: xAxisData
                     },
                     series: [{
                         name: 'line',
-                        type: 'line',
-                        stack: 'all',
-                        symbol: 'none',
-                        symbolSize: 10,
-                        data: data1,
-                        itemStyle: itemStyle
+                        data: data1
                     }]
                 });
+            }, 500);
+        })
 
-                setInterval(function () {
-                    for (var i = 0; i < 5; i++) {
-                        xAxisData.shift();
-                        xAxisData.push('类目' + count);
-                        data1.shift();
-                        data1.push(randomData());
-                        count++;
-                    }
-                    chart.setOption({
-                        xAxis: {
-                            data: xAxisData
-                        },
-                        series: [{
-                            name: 'line',
-                            data: data1
-                        }]
-                    });
-                }, 500);
-            })
+    </script>
+</body>
 
-        </script>
-    </body>
 </html>

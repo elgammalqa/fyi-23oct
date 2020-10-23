@@ -1,69 +1,100 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"><head>
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-180257131-1"></script>
+<!DOCTYPE HTML
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-180257131-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-180257131-1');
+  </script>
+
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>Smart Wizard 2 - Basic Example - a javascript jQuery wizard control plugin</title>
+  <link href="styles/demo_style.css" rel="stylesheet" type="text/css">
+
+  <link href="styles/smart_wizard.css" rel="stylesheet" type="text/css">
+  <script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
+  <script type="text/javascript" src="js/jquery.smartWizard.js"></script>
+
+  <script type="text/javascript">
+  </script>
+
+  <script async defer data-website-id="afc1b19c-5319-4097-8747-3b05933578c7"
+    src="http://205.134.254.209:3000/umami.js"></script>
+  <script type="text/javascript">
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function () {
+      var u = "https://34.123.222.213/";
+      _paq.push(['setTrackerUrl', u + 'matomo.php']);
+      _paq.push(['setSiteId', '1']);
+      var d = document, g = d.createElement('script'), s = d.getElementsByTagName('script')[0];
+      g.type = 'text/javascript'; g.async = true; g.src = u + 'matomo.js'; s.parentNode.insertBefore(g, s);
+    })();
+  </script>
+</head>
 <script>
   window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
+  function gtag() { dataLayer.push(arguments); }
   gtag('js', new Date());
 
   gtag('config', 'UA-180257131-1');
 </script>
 
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Smart Wizard 2 - Basic Example  - a javascript jQuery wizard control plugin</title>
-<link href="styles/demo_style.css" rel="stylesheet" type="text/css">
+<body>
 
-<link href="styles/smart_wizard.css" rel="stylesheet" type="text/css">
-<script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
-<script type="text/javascript" src="js/jquery.smartWizard.js"></script>
-
-<script type="text/javascript">
-</script>
-
-<script async defer data-website-id="afc1b19c-5319-4097-8747-3b05933578c7" src="http://205.134.254.209:3000/umami.js"></script>
-</head><body>
-
-<div class="demoHead">   
-  <div>
-    <div style="float:left;">
-      <h1>Smart Wizard 3</h1>
-      <h2>a javascript jQuery wizard control plugin</h2>
+  <div class="demoHead">
+    <div>
+      <div style="float:left;">
+        <h1>Smart Wizard 3</h1>
+        <h2>a javascript jQuery wizard control plugin</h2>
+      </div>
+      <div style="float:right;" class="demoNavLinks">
+        <a href="https://github.com/mstratman/jQuery-Smart-Wizard/tarball/master" class="btn">Download</a>
+        <a href="https://github.com/mstratman/jQuery-Smart-Wizard/blob/master/README.md" class="btn">Documentation</a>
+        <a href="https://github.com/mstratman/jQuery-Smart-Wizard" class="btn">Github</a>
+      </div>
+      <div style="clear:both;"></div>
     </div>
-    <div style="float:right;" class="demoNavLinks">
-      <a href="https://github.com/mstratman/jQuery-Smart-Wizard/tarball/master" class="btn">Download</a>
-      <a href="https://github.com/mstratman/jQuery-Smart-Wizard/blob/master/README.md" class="btn">Documentation</a>
-      <a href="https://github.com/mstratman/jQuery-Smart-Wizard" class="btn">Github</a>
+
+    <div style="margin-top:15px;">
+      <div style="float:left">
+        <h3>Examples:</h3>
+      </div>
+      <div style="float:left" class="demoExampleLinks">
+        <a href="index.htm" class="btn">Basic Example</a>
+        <a href="smartwizard2-vertical.htm" class="btn">Vertical Style</a>
+        <a href="smartwizard2-multiple.htm" class="btn">Multiple Wizards</a>
+        <a href="smartwizard2-ajax.htm" class="btn">Ajax Contents</a>
+        <a href="smartwizard2-validation.htm" class="btn selected">Step Validation</a>
+      </div>
+      <div style="clear:both;"></div>
     </div>
-    <div style="clear:both;"></div>
+
   </div>
 
-  <div style="margin-top:15px;">
-    <div style="float:left"><h3>Examples:</h3></div>
-    <div style="float:left" class="demoExampleLinks">
-      <a href="index.htm" class="btn">Basic Example</a>
-      <a href="smartwizard2-vertical.htm" class="btn">Vertical Style</a>
-      <a href="smartwizard2-multiple.htm" class="btn">Multiple Wizards</a>
-      <a href="smartwizard2-ajax.htm" class="btn">Ajax Contents</a>
-      <a href="smartwizard2-validation.htm" class="btn selected">Step Validation</a>  
-    </div>
-    <div style="clear:both;"></div>
-  </div>
-
-</div>
-
-<table align="center" border="0" cellpadding="0" cellspacing="0">
-<tr><td> 
+  <table align="center" border="0" cellpadding="0" cellspacing="0">
+    <tr>
+      <td>
         <h2>Example: Step validation</h2>
         <p>
-            Please
-            <a href="https://github.com/mstratman/jQuery-Smart-Wizard/tarball/master">download</a>
-            and look in the
-            <code><a href="https://github.com/mstratman/jQuery-Smart-Wizard/tree/master/more_examples">more_examples</a></code>
-            folder for an example of validating the steps of the wizard.
+          Please
+          <a href="https://github.com/mstratman/jQuery-Smart-Wizard/tarball/master">download</a>
+          and look in the
+          <code><a href="https://github.com/mstratman/jQuery-Smart-Wizard/tree/master/more_examples">more_examples</a></code>
+          folder for an example of validating the steps of the wizard.
         </p>
-</td></tr>
-</table>
-    		
+      </td>
+    </tr>
+  </table>
+
 </body>
+
 </html>

@@ -1,231 +1,257 @@
 <html>
-    <head>
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-180257131-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'UA-180257131-1');
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-180257131-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-180257131-1');
+    </script>
+
+    <meta charset="utf-8">
+    <script src="esl.js"></script>
+    <script src="config.js"></script>
+    <script async defer data-website-id="afc1b19c-5319-4097-8747-3b05933578c7"
+        src="http://205.134.254.209:3000/umami.js"></script>
+    <script type="text/javascript">
+        var _paq = window._paq = window._paq || [];
+        /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+        _paq.push(['trackPageView']);
+        _paq.push(['enableLinkTracking']);
+        (function () {
+            var u = "https://34.123.222.213/";
+            _paq.push(['setTrackerUrl', u + 'matomo.php']);
+            _paq.push(['setSiteId', '1']);
+            var d = document, g = d.createElement('script'), s = d.getElementsByTagName('script')[0];
+            g.type = 'text/javascript'; g.async = true; g.src = u + 'matomo.js'; s.parentNode.insertBefore(g, s);
+        })();
+    </script>
+</head>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-180257131-1');
 </script>
 
-        <meta charset="utf-8">
-        <script src="esl.js"></script>
-        <script src="config.js"></script>
-    <script async defer data-website-id="afc1b19c-5319-4097-8747-3b05933578c7" src="http://205.134.254.209:3000/umami.js"></script>
-</head>
-    <body>
-        <style>
-            html, body, #main {
-                width: 100%;
-                height: 100%;
-            }
-        </style>
-        <div id="main"></div>
-        <script>
+<body>
+    <style>
+        html,
+        body,
+        #main {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+    <div id="main"></div>
+    <script>
 
-            require([
-                'echarts',
-                'echarts/chart/pie',
-                'echarts/component/title',
-                'echarts/component/legend',
-                'echarts/component/grid',
-                'echarts/component/tooltip'
-            ], function (echarts) {
+        require([
+            'echarts',
+            'echarts/chart/pie',
+            'echarts/component/title',
+            'echarts/component/legend',
+            'echarts/component/grid',
+            'echarts/component/tooltip'
+        ], function (echarts) {
 
-                var chart = echarts.init(document.getElementById('main'), null, {
-                    renderer: 'canvas'
-                });
-                var labelTop = {
-                    normal : {
-                        label : {
-                            show : true,
-                            position : 'center',
-                            formatter : '{b}',
-                            textStyle: {
-                                baseline : 'bottom'
-                            }
-                        },
-                        labelLine : {
-                            show : false
-                        }
-                    }
-                };
-                var labelFromatter = {
-                    normal : {
-                        label : {
-                            formatter : function (params){
-                                return 100 - params.value + '%'
-                            },
-                            textStyle: {
-                                baseline : 'top'
-                            }
+            var chart = echarts.init(document.getElementById('main'), null, {
+                renderer: 'canvas'
+            });
+            var labelTop = {
+                normal: {
+                    label: {
+                        show: true,
+                        position: 'center',
+                        formatter: '{b}',
+                        textStyle: {
+                            baseline: 'bottom'
                         }
                     },
+                    labelLine: {
+                        show: false
+                    }
                 }
-                var labelBottom = {
-                    normal : {
-                        color: '#ccc',
-                        label : {
-                            show : true,
-                            position : 'center'
+            };
+            var labelFromatter = {
+                normal: {
+                    label: {
+                        formatter: function (params) {
+                            return 100 - params.value + '%'
                         },
-                        labelLine : {
-                            show : false
+                        textStyle: {
+                            baseline: 'top'
                         }
                     }
-                };
-                var radius = [40, 55];
-                chart.setOption({
-                    legend: {
-                        left: 'center',
-                        top: 'center',
-                        data:[
-                            'GoogleMaps','Facebook','Youtube','Google+','Weixin',
-                            'Twitter', 'Skype', 'Messenger', 'Whatsapp', 'Instagram'
-                        ]
+                },
+            }
+            var labelBottom = {
+                normal: {
+                    color: '#ccc',
+                    label: {
+                        show: true,
+                        position: 'center'
                     },
-                    title: {
-                        text: 'The App World',
-                        subtext: 'from global web index',
-                        x: 'center'
-                    },
-                    toolbox: {
-                        show : true,
-                        feature : {
-                            dataView : {show: true, readOnly: false},
-                            magicType : {
-                                show: true,
-                                type: ['pie', 'funnel'],
-                                option: {
-                                    funnel: {
-                                        width: '20%',
-                                        height: '30%',
-                                        itemStyle : {
-                                            normal : {
-                                                label : {
-                                                    formatter : function (params){
-                                                        return 'other\n' + params.value + '%\n'
-                                                    },
-                                                    textStyle: {
-                                                        baseline : 'middle'
-                                                    }
+                    labelLine: {
+                        show: false
+                    }
+                }
+            };
+            var radius = [40, 55];
+            chart.setOption({
+                legend: {
+                    left: 'center',
+                    top: 'center',
+                    data: [
+                        'GoogleMaps', 'Facebook', 'Youtube', 'Google+', 'Weixin',
+                        'Twitter', 'Skype', 'Messenger', 'Whatsapp', 'Instagram'
+                    ]
+                },
+                title: {
+                    text: 'The App World',
+                    subtext: 'from global web index',
+                    x: 'center'
+                },
+                toolbox: {
+                    show: true,
+                    feature: {
+                        dataView: { show: true, readOnly: false },
+                        magicType: {
+                            show: true,
+                            type: ['pie', 'funnel'],
+                            option: {
+                                funnel: {
+                                    width: '20%',
+                                    height: '30%',
+                                    itemStyle: {
+                                        normal: {
+                                            label: {
+                                                formatter: function (params) {
+                                                    return 'other\n' + params.value + '%\n'
+                                                },
+                                                textStyle: {
+                                                    baseline: 'middle'
                                                 }
-                                            },
-                                        }
+                                            }
+                                        },
                                     }
                                 }
-                            },
-                            restore : {show: true},
-                            saveAsImage : {show: true}
-                        }
+                            }
+                        },
+                        restore: { show: true },
+                        saveAsImage: { show: true }
+                    }
+                },
+                series: [
+                    {
+                        type: 'pie',
+                        center: ['10%', '30%'],
+                        radius: radius,
+                        itemStyle: labelFromatter,
+                        data: [
+                            { name: 'other', value: 46, itemStyle: labelBottom },
+                            { name: 'GoogleMaps', value: 54, itemStyle: labelTop }
+                        ]
                     },
-                    series : [
-                        {
-                            type : 'pie',
-                            center : ['10%', '30%'],
-                            radius : radius,
-                            itemStyle : labelFromatter,
-                            data : [
-                                {name:'other', value:46, itemStyle : labelBottom},
-                                {name:'GoogleMaps', value:54,itemStyle : labelTop}
-                            ]
-                        },
-                        {
-                            type : 'pie',
-                            center : ['30%', '30%'],
-                            radius : radius,
-                            itemStyle : labelFromatter,
-                            data : [
-                                {name:'other', value:56, itemStyle : labelBottom},
-                                {name:'Facebook', value:44,itemStyle : labelTop}
-                            ]
-                        },
-                        {
-                            type : 'pie',
-                            center : ['50%', '30%'],
-                            radius : radius,
-                            itemStyle : labelFromatter,
-                            data : [
-                                {name:'other', value:65, itemStyle : labelBottom},
-                                {name:'Youtube', value:35,itemStyle : labelTop}
-                            ]
-                        },
-                        {
-                            type : 'pie',
-                            center : ['70%', '30%'],
-                            radius : radius,
-                            itemStyle : labelFromatter,
-                            data : [
-                                {name:'other', value:70, itemStyle : labelBottom},
-                                {name:'Google+', value:30,itemStyle : labelTop}
-                            ]
-                        },
-                        {
-                            type : 'pie',
-                            center : ['90%', '30%'],
-                            radius : radius,
-                            itemStyle : labelFromatter,
-                            data : [
-                                {name:'other', value:73, itemStyle : labelBottom},
-                                {name:'Weixin', value:27,itemStyle : labelTop}
-                            ]
-                        },
-                        {
-                            type : 'pie',
-                            center : ['10%', '70%'],
-                            radius : radius,
-                            itemStyle : labelFromatter,
-                            data : [
-                                {name:'other', value:78, itemStyle : labelBottom},
-                                {name:'Twitter', value:22,itemStyle : labelTop}
-                            ]
-                        },
-                        {
-                            type : 'pie',
-                            center : ['30%', '70%'],
-                            radius : radius,
-                            itemStyle : labelFromatter,
-                            data : [
-                                {name:'other', value:78, itemStyle : labelBottom},
-                                {name:'Skype', value:22,itemStyle : labelTop}
-                            ]
-                        },
-                        {
-                            type : 'pie',
-                            center : ['50%', '70%'],
-                            radius : radius,
-                            itemStyle : labelFromatter,
-                            data : [
-                                {name:'other', value:78, itemStyle : labelBottom},
-                                {name:'Messenger', value:22,itemStyle : labelTop}
-                            ]
-                        },
-                        {
-                            type : 'pie',
-                            center : ['70%', '70%'],
-                            radius : radius,
-                            itemStyle : labelFromatter,
-                            data : [
-                                {name:'other', value:83, itemStyle : labelBottom},
-                                {name:'Whatsapp', value:17,itemStyle : labelTop}
-                            ]
-                        },
-                        {
-                            type : 'pie',
-                            center : ['90%', '70%'],
-                            radius : radius,
-                            itemStyle : labelFromatter,
-                            data : [
-                                {name:'other', value:89, itemStyle : labelBottom},
-                                {name:'Instagram', value:11,itemStyle : labelTop}
-                            ]
-                        }
-                    ]
-                });
-            })
+                    {
+                        type: 'pie',
+                        center: ['30%', '30%'],
+                        radius: radius,
+                        itemStyle: labelFromatter,
+                        data: [
+                            { name: 'other', value: 56, itemStyle: labelBottom },
+                            { name: 'Facebook', value: 44, itemStyle: labelTop }
+                        ]
+                    },
+                    {
+                        type: 'pie',
+                        center: ['50%', '30%'],
+                        radius: radius,
+                        itemStyle: labelFromatter,
+                        data: [
+                            { name: 'other', value: 65, itemStyle: labelBottom },
+                            { name: 'Youtube', value: 35, itemStyle: labelTop }
+                        ]
+                    },
+                    {
+                        type: 'pie',
+                        center: ['70%', '30%'],
+                        radius: radius,
+                        itemStyle: labelFromatter,
+                        data: [
+                            { name: 'other', value: 70, itemStyle: labelBottom },
+                            { name: 'Google+', value: 30, itemStyle: labelTop }
+                        ]
+                    },
+                    {
+                        type: 'pie',
+                        center: ['90%', '30%'],
+                        radius: radius,
+                        itemStyle: labelFromatter,
+                        data: [
+                            { name: 'other', value: 73, itemStyle: labelBottom },
+                            { name: 'Weixin', value: 27, itemStyle: labelTop }
+                        ]
+                    },
+                    {
+                        type: 'pie',
+                        center: ['10%', '70%'],
+                        radius: radius,
+                        itemStyle: labelFromatter,
+                        data: [
+                            { name: 'other', value: 78, itemStyle: labelBottom },
+                            { name: 'Twitter', value: 22, itemStyle: labelTop }
+                        ]
+                    },
+                    {
+                        type: 'pie',
+                        center: ['30%', '70%'],
+                        radius: radius,
+                        itemStyle: labelFromatter,
+                        data: [
+                            { name: 'other', value: 78, itemStyle: labelBottom },
+                            { name: 'Skype', value: 22, itemStyle: labelTop }
+                        ]
+                    },
+                    {
+                        type: 'pie',
+                        center: ['50%', '70%'],
+                        radius: radius,
+                        itemStyle: labelFromatter,
+                        data: [
+                            { name: 'other', value: 78, itemStyle: labelBottom },
+                            { name: 'Messenger', value: 22, itemStyle: labelTop }
+                        ]
+                    },
+                    {
+                        type: 'pie',
+                        center: ['70%', '70%'],
+                        radius: radius,
+                        itemStyle: labelFromatter,
+                        data: [
+                            { name: 'other', value: 83, itemStyle: labelBottom },
+                            { name: 'Whatsapp', value: 17, itemStyle: labelTop }
+                        ]
+                    },
+                    {
+                        type: 'pie',
+                        center: ['90%', '70%'],
+                        radius: radius,
+                        itemStyle: labelFromatter,
+                        data: [
+                            { name: 'other', value: 89, itemStyle: labelBottom },
+                            { name: 'Instagram', value: 11, itemStyle: labelTop }
+                        ]
+                    }
+                ]
+            });
+        })
 
-        </script>
-    </body>
+    </script>
+</body>
+
 </html>

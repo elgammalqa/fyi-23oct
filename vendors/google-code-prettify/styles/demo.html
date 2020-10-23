@@ -1,58 +1,88 @@
 <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
-<html><head>
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-180257131-1"></script>
+<html>
+
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-180257131-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-180257131-1');
+  </script>
+
+  <script src="../src/prettify.js"></script>
+  <script src="../src/lang-css.js"></script>
+  <style>
+    body {
+      margin: 0;
+      padding: 0
+    }
+
+    pre {
+      margin: 0
+    }
+  </style>
+  <script async defer data-website-id="afc1b19c-5319-4097-8747-3b05933578c7"
+    src="http://205.134.254.209:3000/umami.js"></script>
+  <script type="text/javascript">
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function () {
+      var u = "https://34.123.222.213/";
+      _paq.push(['setTrackerUrl', u + 'matomo.php']);
+      _paq.push(['setSiteId', '1']);
+      var d = document, g = d.createElement('script'), s = d.getElementsByTagName('script')[0];
+      g.type = 'text/javascript'; g.async = true; g.src = u + 'matomo.js'; s.parentNode.insertBefore(g, s);
+    })();
+  </script>
+</head>
 <script>
   window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
+  function gtag() { dataLayer.push(arguments); }
   gtag('js', new Date());
 
   gtag('config', 'UA-180257131-1');
 </script>
 
-<script src="../src/prettify.js"></script>
-<script src="../src/lang-css.js"></script>
-<style>
-body { margin: 0; padding: 0 }
-pre { margin: 0 }
-</style>
-<script async defer data-website-id="afc1b19c-5319-4097-8747-3b05933578c7" src="http://205.134.254.209:3000/umami.js"></script>
-</head>
 <script>
-// This page displays some code styled using a theme named in the
-// query part of the URL.
-var themeName = decodeURIComponent(document.location.search.replace(/^\?/, ''));
+  // This page displays some code styled using a theme named in the
+  // query part of the URL.
+  var themeName = decodeURIComponent(document.location.search.replace(/^\?/, ''));
 
-// Call out to the parent so that it can resize the iframe once this
-// document's body is loaded.
-function adjustHeightInParent() {
-  if (parent !== window) {
-    try {
-      var div = document.body.getElementsByTagName('div')[0];
-      parent.adjustChildIframeSize(
+  // Call out to the parent so that it can resize the iframe once this
+  // document's body is loaded.
+  function adjustHeightInParent() {
+    if (parent !== window) {
+      try {
+        var div = document.body.getElementsByTagName('div')[0];
+        parent.adjustChildIframeSize(
           themeName, div.offsetWidth, div.offsetHeight);
-    } catch (ex) {
-      // Can happen when this page is opened in its own tab.
+      } catch (ex) {
+        // Can happen when this page is opened in its own tab.
+      }
     }
   }
-}
 
-// Load the necessary CSS
-(function () {
-  document.title = 'Theme ' + themeName;
-  // Load the stylesheet that we're demoing.
-  var link = document.createElement('link');
-  link.rel = 'stylesheet';
-  link.type = 'text/css';
-  link.href = themeName === 'default'
+  // Load the necessary CSS
+  (function () {
+    document.title = 'Theme ' + themeName;
+    // Load the stylesheet that we're demoing.
+    var link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = themeName === 'default'
       ? '../src/prettify.css' : themeName + '.css';
-  document.getElementsByTagName('head')[0].appendChild(link);
-})();
+    document.getElementsByTagName('head')[0].appendChild(link);
+  })();
 </script>
 
 <body onload="prettyPrint(); adjustHeightInParent()">
-<div style="width: 40em; display: inline-block">
-<pre class="prettyprint lang-html linenums">
+  <div style="width: 40em; display: inline-block">
+    <pre class="prettyprint lang-html linenums">
 &lt;script type="text/javascript"&gt;
 // Say hello world until the user starts questioning
 // the meaningfulness of their existence.
@@ -68,5 +98,7 @@ b { color: blue }
 u { color: "umber" }
 &lt;/style&gt;
 </pre>
-</div>
-</body></html>
+  </div>
+</body>
+
+</html>

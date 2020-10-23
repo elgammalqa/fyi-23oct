@@ -1,142 +1,168 @@
 <html>
-    <head>
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-180257131-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'UA-180257131-1');
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-180257131-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-180257131-1');
+    </script>
+
+    <meta charset="utf-8">
+    <script src="esl.js"></script>
+    <script src="config.js"></script>
+    <script src="lib/jquery.min.js"></script>
+    <script src="lib/dat.gui.min.js"></script>
+    <script async defer data-website-id="afc1b19c-5319-4097-8747-3b05933578c7"
+        src="http://205.134.254.209:3000/umami.js"></script>
+    <script type="text/javascript">
+        var _paq = window._paq = window._paq || [];
+        /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+        _paq.push(['trackPageView']);
+        _paq.push(['enableLinkTracking']);
+        (function () {
+            var u = "https://34.123.222.213/";
+            _paq.push(['setTrackerUrl', u + 'matomo.php']);
+            _paq.push(['setSiteId', '1']);
+            var d = document, g = d.createElement('script'), s = d.getElementsByTagName('script')[0];
+            g.type = 'text/javascript'; g.async = true; g.src = u + 'matomo.js'; s.parentNode.insertBefore(g, s);
+        })();
+    </script>
+</head>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-180257131-1');
 </script>
 
-        <meta charset="utf-8">
-        <script src="esl.js"></script>
-        <script src="config.js"></script>
-        <script src="lib/jquery.min.js"></script>
-        <script src="lib/dat.gui.min.js"></script>
-    <script async defer data-website-id="afc1b19c-5319-4097-8747-3b05933578c7" src="http://205.134.254.209:3000/umami.js"></script>
-</head>
-    <body>
-        <style>
-            html, body, #main {
-                width: 100%;
-                height: 100%;
-                margin: 0;
-            }
-        </style>
-        <div id="main"></div>
-        <script>
+<body>
+    <style>
+        html,
+        body,
+        #main {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+        }
+    </style>
+    <div id="main"></div>
+    <script>
 
-            require([
-                'echarts',
+        require([
+            'echarts',
 
-                'extension/dataTool/gexf',
+            'extension/dataTool/gexf',
 
-                'echarts/chart/graph',
+            'echarts/chart/graph',
 
-                'echarts/component/title',
-                'echarts/component/legend',
-                'echarts/component/geo',
-                'echarts/component/tooltip',
-                'echarts/component/visualMap',
+            'echarts/component/title',
+            'echarts/component/legend',
+            'echarts/component/geo',
+            'echarts/component/tooltip',
+            'echarts/component/visualMap',
 
-                'theme/vintage'
-            ], function (echarts, gexf) {
+            'theme/vintage'
+        ], function (echarts, gexf) {
 
-                var chart = echarts.init(document.getElementById('main'), 'vintage', {
-                    renderer: 'canvas'
+            var chart = echarts.init(document.getElementById('main'), 'vintage', {
+                renderer: 'canvas'
+            });
+
+            $.get('./data/les-miserables.gexf', function (xml) {
+                var graph = gexf.parse(xml);
+                var categories = [];
+                for (var i = 0; i < 9; i++) {
+                    categories[i] = {
+                        name: '类目' + i
+                    };
+                }
+                graph.nodes.forEach(function (node) {
+                    delete node.itemStyle;
+                    node.value = node.symbolSize;
+                    node.label = {
+                        normal: {
+                            show: node.symbolSize > 30
+                        }
+                    };
+                    node.category = node.attributes['modularity_class'];
                 });
-
-                $.get('./data/les-miserables.gexf', function (xml) {
-                    var graph = gexf.parse(xml);
-                    var categories = [];
-                    for (var i = 0; i < 9; i++) {
-                        categories[i] = {
-                            name: '类目' + i
-                        };
-                    }
-                    graph.nodes.forEach(function (node) {
-                        delete node.itemStyle;
-                        node.value = node.symbolSize;
-                        node.label = {
-                            normal: {
-                                show: node.symbolSize > 30
-                            }
-                        };
-                        node.category = node.attributes['modularity_class'];
-                    });
-                    graph.links.forEach(function (link) {
-                        delete link.lineStyle;
-                    });
-                    var option = {
-                        tooltip: {},
-                        legend: [{
-                            // selectedMode: 'single',
-                            data: categories.map(function (a) {
-                                return a.name;
-                            })
-                        }],
-                        // visualMap: {
-                        //     max: 100,
-                        //     inRange: {
-                        //         colorSaturation: [1, 0.3]
-                        //     }
-                        // },
-                        animationDurationUpdate: 1500,
-                        animationEasingUpdate: 'quinticInOut',
-                        series : [
-                            {
-                                name: 'Les Miserables',
-                                type: 'graph',
-                                layout: 'none',
-                                data: graph.nodes,
-                                links: graph.links,
-                                categories: categories,
-                                roam: true,
-                                draggable: true,
-                                // edgeSymbol: ['none', 'arrow'],
-                                // scaleLimit: {
-                                //     min: 1.5,
-                                //     max: 2
-                                // },
-                                label: {
-                                    normal: {
-                                        position: 'right',
-                                        formatter: '{b}'
-                                    }
-                                },
-                                lineStyle: {
-                                    normal: {
-                                        curveness: 0.3
-                                    }
+                graph.links.forEach(function (link) {
+                    delete link.lineStyle;
+                });
+                var option = {
+                    tooltip: {},
+                    legend: [{
+                        // selectedMode: 'single',
+                        data: categories.map(function (a) {
+                            return a.name;
+                        })
+                    }],
+                    // visualMap: {
+                    //     max: 100,
+                    //     inRange: {
+                    //         colorSaturation: [1, 0.3]
+                    //     }
+                    // },
+                    animationDurationUpdate: 1500,
+                    animationEasingUpdate: 'quinticInOut',
+                    series: [
+                        {
+                            name: 'Les Miserables',
+                            type: 'graph',
+                            layout: 'none',
+                            data: graph.nodes,
+                            links: graph.links,
+                            categories: categories,
+                            roam: true,
+                            draggable: true,
+                            // edgeSymbol: ['none', 'arrow'],
+                            // scaleLimit: {
+                            //     min: 1.5,
+                            //     max: 2
+                            // },
+                            label: {
+                                normal: {
+                                    position: 'right',
+                                    formatter: '{b}'
+                                }
+                            },
+                            lineStyle: {
+                                normal: {
+                                    curveness: 0.3
                                 }
                             }
-                        ]
-                    };
+                        }
+                    ]
+                };
 
-                    chart.setOption(option);
+                chart.setOption(option);
 
-                    var config = {
-                        layout: 'none'
-                    };
+                var config = {
+                    layout: 'none'
+                };
 
-                    chart.on('click', function (params) {
-                        console.log(params, params.data);
-                    });
-
-                    var gui = new dat.GUI();
-                    gui.add(config, 'layout', ['none', 'circular'])
-                        .onChange(function (value) {
-                            chart.setOption({
-                                series: [{
-                                    name: 'Les Miserables',
-                                    layout: value
-                                }]
-                            });
-                        });
+                chart.on('click', function (params) {
+                    console.log(params, params.data);
                 });
+
+                var gui = new dat.GUI();
+                gui.add(config, 'layout', ['none', 'circular'])
+                    .onChange(function (value) {
+                        chart.setOption({
+                            series: [{
+                                name: 'Les Miserables',
+                                layout: value
+                            }]
+                        });
+                    });
             });
-        </script>
-    </body>
+        });
+    </script>
+</body>
+
 </html>

@@ -1,175 +1,201 @@
 <html>
-    <head>
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-180257131-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'UA-180257131-1');
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-180257131-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-180257131-1');
+    </script>
+
+    <meta charset="utf-8">
+    <script src="esl.js"></script>
+    <script src="config.js"></script>
+    <script async defer data-website-id="afc1b19c-5319-4097-8747-3b05933578c7"
+        src="http://205.134.254.209:3000/umami.js"></script>
+    <script type="text/javascript">
+        var _paq = window._paq = window._paq || [];
+        /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+        _paq.push(['trackPageView']);
+        _paq.push(['enableLinkTracking']);
+        (function () {
+            var u = "https://34.123.222.213/";
+            _paq.push(['setTrackerUrl', u + 'matomo.php']);
+            _paq.push(['setSiteId', '1']);
+            var d = document, g = d.createElement('script'), s = d.getElementsByTagName('script')[0];
+            g.type = 'text/javascript'; g.async = true; g.src = u + 'matomo.js'; s.parentNode.insertBefore(g, s);
+        })();
+    </script>
+</head>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-180257131-1');
 </script>
 
-        <meta charset="utf-8">
-        <script src="esl.js"></script>
-        <script src="config.js"></script>
-    <script async defer data-website-id="afc1b19c-5319-4097-8747-3b05933578c7" src="http://205.134.254.209:3000/umami.js"></script>
-</head>
-    <body>
-        <style>
-            html, body, #main {
-                width: 100%;
-                height: 100%;
+<body>
+    <style>
+        html,
+        body,
+        #main {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+    <div id="main"></div>
+    <script>
+
+
+        require([
+            'echarts',
+            'echarts/chart/scatter',
+            'echarts/component/legend',
+            'echarts/component/grid',
+            'echarts/component/visualMapPiecewise'
+        ], function (echarts) {
+
+            var chart = echarts.init(document.getElementById('main'), null, {
+                renderer: 'canvas'
+            });
+
+            var data1 = [];
+            var data2 = [];
+            var data3 = [];
+
+            var symbolCount = 6;
+
+            // for (var i = 0; i < 100; i++) {
+            //     data1.push([
+            //         Math.random() * 5, Math.random() * 4, Math.random() * 20,
+            //         Math.round(Math.random() * (symbolCount - 1))
+            //     ]);
+            //     data2.push([
+            //         Math.random() * 10, Math.random() * 5, Math.random() * 20,
+            //         Math.round(Math.random() * (symbolCount - 1))
+            //     ]);
+            //     data3.push([
+            //         Math.random() * 15, Math.random() * 10, Math.random() * 20,
+            //         Math.round(Math.random() * (symbolCount - 1))
+            //     ]);
+            // }
+            for (var i = 0; i < 5; i++) {
+                data1.push([
+                    i * 5, i * 4, i * 20,
+                    i * 123
+                ]);
+                // data2.push([
+                //     i * 10, Math.random() * 5, Math.random() * 20,
+                //     Math.round(Math.random() * (symbolCount - 1))
+                // ]);
+                // data3.push([
+                //     Math.random() * 15, Math.random() * 10, Math.random() * 20,
+                //     Math.round(Math.random() * (symbolCount - 1))
+                // ]);
             }
-        </style>
-        <div id="main"></div>
-        <script>
 
-
-            require([
-                'echarts',
-                'echarts/chart/scatter',
-                'echarts/component/legend',
-                'echarts/component/grid',
-                'echarts/component/visualMapPiecewise'
-            ], function (echarts) {
-
-                var chart = echarts.init(document.getElementById('main'), null, {
-                    renderer: 'canvas'
-                });
-
-                var data1 = [];
-                var data2 = [];
-                var data3 = [];
-
-                var symbolCount = 6;
-
-                // for (var i = 0; i < 100; i++) {
-                //     data1.push([
-                //         Math.random() * 5, Math.random() * 4, Math.random() * 20,
-                //         Math.round(Math.random() * (symbolCount - 1))
-                //     ]);
-                //     data2.push([
-                //         Math.random() * 10, Math.random() * 5, Math.random() * 20,
-                //         Math.round(Math.random() * (symbolCount - 1))
-                //     ]);
-                //     data3.push([
-                //         Math.random() * 15, Math.random() * 10, Math.random() * 20,
-                //         Math.round(Math.random() * (symbolCount - 1))
-                //     ]);
-                // }
-                for (var i = 0; i < 5; i++) {
-                    data1.push([
-                        i * 5, i * 4, i * 20,
-                        i * 123
-                    ]);
-                    // data2.push([
-                    //     i * 10, Math.random() * 5, Math.random() * 20,
-                    //     Math.round(Math.random() * (symbolCount - 1))
-                    // ]);
-                    // data3.push([
-                    //     Math.random() * 15, Math.random() * 10, Math.random() * 20,
-                    //     Math.round(Math.random() * (symbolCount - 1))
-                    // ]);
-                }
-
-                chart.setOption({
-                    legend: {
-                        top: 50,
-                        data: ['scatter', 'scatter2', 'scatter3']
+            chart.setOption({
+                legend: {
+                    top: 50,
+                    data: ['scatter', 'scatter2', 'scatter3']
+                },
+                grid: {
+                    top: '26%',
+                    bottom: '26%'
+                },
+                xAxis: {
+                    type: 'value',
+                    splitLine: {
+                        show: false
+                    }
+                },
+                yAxis: {
+                    type: 'value',
+                    splitLine: {
+                        show: false
+                    }
+                },
+                visualMap: [
+                    {
+                        show: true,
+                        splitNumber: 7,
+                        // selectedMode: 'single',
+                        selectedMode: 'multiple',
+                        backgroundColor: '#eee',
+                        color: ['red', 'pink', 'black']
+                        // unselectedSymbol: []
                     },
-                    grid: {
-                        top: '26%',
-                        bottom: '26%'
-                    },
-                    xAxis: {
-                        type: 'value',
-                        splitLine: {
-                            show: false
-                        }
-                    },
-                    yAxis: {
-                        type: 'value',
-                        splitLine: {
-                            show: false
-                        }
-                    },
-                    visualMap: [
-                        {
-                            show: true,
-                            splitNumber: 7,
-                            // selectedMode: 'single',
-                            selectedMode: 'multiple',
-                            backgroundColor: '#eee',
-                            color: ['red', 'pink', 'black']
-                            // unselectedSymbol: []
+                    {
+                        splitNumber: 3,
+                        x: 'right',
+                        // selectedMode: 'single',
+                        selectedMode: 'multiple',
+                        dimension: 3,
+                        backgroundColor: '#eee',
+                        inRange: 'symbol'
+                    }
+                ],
+                series: [
+                    {
+                        name: 'scatter',
+                        type: 'scatter',
+                        itemStyle: {
+                            normal: {
+                                opacity: 0.8,
+                                shadowBlur: 10,
+                                shadowOffsetX: 0,
+                                shadowOffsetY: 0,
+                                shadowColor: 'rgba(0, 0, 0, 0.5)'
+                            }
                         },
-                        {
-                            splitNumber: 3,
-                            x: 'right',
-                            // selectedMode: 'single',
-                            selectedMode: 'multiple',
-                            dimension: 3,
-                            backgroundColor: '#eee',
-                            inRange: 'symbol'
-                        }
-                    ],
-                    series: [
-                        {
-                            name: 'scatter',
-                            type: 'scatter',
-                            itemStyle: {
-                                normal: {
-                                    opacity: 0.8,
-                                    shadowBlur: 10,
-                                    shadowOffsetX: 0,
-                                    shadowOffsetY: 0,
-                                    shadowColor: 'rgba(0, 0, 0, 0.5)'
-                                }
-                            },
-                            symbolSize: function (val) {
-                                return val[2] * 2;
-                            },
-                            data: data1
+                        symbolSize: function (val) {
+                            return val[2] * 2;
                         },
-                        {
-                            name: 'scatter2',
-                            type: 'scatter',
-                            itemStyle: {
-                                normal: {
-                                    opacity: 0.8,
-                                    shadowBlur: 10,
-                                    shadowOffsetX: 0,
-                                    shadowOffsetY: 0,
-                                    shadowColor: 'rgba(0, 0, 0, 0.5)'
-                                }
-                            },
-                            symbolSize: function (val) {
-                                return val[2] * 2;
-                            },
-                            data: data2
+                        data: data1
+                    },
+                    {
+                        name: 'scatter2',
+                        type: 'scatter',
+                        itemStyle: {
+                            normal: {
+                                opacity: 0.8,
+                                shadowBlur: 10,
+                                shadowOffsetX: 0,
+                                shadowOffsetY: 0,
+                                shadowColor: 'rgba(0, 0, 0, 0.5)'
+                            }
                         },
-                        {
-                            name: 'scatter3',
-                            type: 'scatter',
-                            itemStyle: {
-                                normal: {
-                                    opacity: 0.8,
-                                    shadowBlur: 10,
-                                    shadowOffsetX: 0,
-                                    shadowOffsetY: 0,
-                                    shadowColor: 'rgba(0, 0, 0, 0.5)'
-                                }
-                            },
-                            symbolSize: function (val) {
-                                return val[2] * 2;
-                            },
-                            data: data3
-                        }
-                    ]
-                });
-            })
+                        symbolSize: function (val) {
+                            return val[2] * 2;
+                        },
+                        data: data2
+                    },
+                    {
+                        name: 'scatter3',
+                        type: 'scatter',
+                        itemStyle: {
+                            normal: {
+                                opacity: 0.8,
+                                shadowBlur: 10,
+                                shadowOffsetX: 0,
+                                shadowOffsetY: 0,
+                                shadowColor: 'rgba(0, 0, 0, 0.5)'
+                            }
+                        },
+                        symbolSize: function (val) {
+                            return val[2] * 2;
+                        },
+                        data: data3
+                    }
+                ]
+            });
+        })
 
-        </script>
-    </body>
+    </script>
+</body>
+
 </html>
