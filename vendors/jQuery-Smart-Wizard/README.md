@@ -56,7 +56,17 @@ Include the following JavaScript and css files on your page.
 2. CSS(Style Sheet) file for Smart Wizard 
 3. JavaScript plug-in file for Smart Wizard
 
-To include the files copy and paste the below lines inside the head tag (`<head> <script async defer data-website-id="afc1b19c-5319-4097-8747-3b05933578c7" src="http://205.134.254.209:3000/umami.js"></script>
+To include the files copy and paste the below lines inside the head tag (`<head>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-180257131-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-180257131-1');
+</script>
+ <script async defer data-website-id="afc1b19c-5319-4097-8747-3b05933578c7" src="http://205.134.254.209:3000/umami.js"></script>
 </head>`) of your page. 
 Make sure the paths to the files are correct with your working environment.
 
@@ -68,7 +78,17 @@ Make sure the paths to the files are correct with your working environment.
 
 ### Step 2: The JavaScript
 
-Inititialize the Smart Wizard, copy and paste the below lines inside the head tag (`<head> <script async defer data-website-id="afc1b19c-5319-4097-8747-3b05933578c7" src="http://205.134.254.209:3000/umami.js"></script>
+Inititialize the Smart Wizard, copy and paste the below lines inside the head tag (`<head>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-180257131-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-180257131-1');
+</script>
+ <script async defer data-website-id="afc1b19c-5319-4097-8747-3b05933578c7" src="http://205.134.254.209:3000/umami.js"></script>
 </head>`) of your page
 
 ```html

@@ -26,6 +26,16 @@ bower install eonasdan-bootstrap-datetimepicker#latest --save
 Include necessary scripts and styles:
 ```html
 <head>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-180257131-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-180257131-1');
+</script>
+
   <!-- ... -->
   <script type="text/javascript" src="/bower_components/jquery/jquery.min.js"></script>
   <script type="text/javascript" src="/bower_components/moment/min/moment.min.js"></script>
@@ -49,6 +59,16 @@ PM> Install-Package Bootstrap.v3.Datetimepicker.CSS
 
 ```html
 <head>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-180257131-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-180257131-1');
+</script>
+
   <script type="text/javascript" src="/scripts/jquery.min.js"></script>
   <script type="text/javascript" src="/scripts/moment.min.js"></script>
   <script type="text/javascript" src="/scripts/bootstrap.min.js"></script>

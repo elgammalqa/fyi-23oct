@@ -12,7 +12,17 @@ include '../models/news.model.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">   
-  <head> 
+  <head>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-180257131-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-180257131-1');
+</script>
+ 
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">

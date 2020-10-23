@@ -5,7 +5,17 @@
 }else if(isset($_SESSION['user_auth']['user_email'])){
 	$user_email=$_SESSION['user_auth']['user_email'];
 }  ?> 
-<head>    
+<head>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-180257131-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-180257131-1');
+</script>
+    
 	<title style="text-align: left;" > FYI Press </title>  
 		<style type="text/css">
 			@media only screen and (max-width: 991px) {

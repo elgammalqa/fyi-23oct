@@ -24,7 +24,17 @@
 }
 
  ?> 
-<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">  
+<head>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-180257131-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-180257131-1');
+</script>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">  
 	<meta name="p:domain_verify" content="20fe15c41ecc108c8279c64b0f7216f0"/>  
 	<title style="text-align: right;" >
 		إف واي آي برس : آخر الأخبار حول العالم 

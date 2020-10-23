@@ -30,7 +30,17 @@
  			<li class="list-inline-item"><a target="_blank" href="<?php getfooteratt($sp); ?>">
  				<i><img src="../logos/<?php echo $sp; ?>.png"  class="widthHeight" ></i></a></li>
           <?php  }  ?>  
-<head><link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> 
+<head>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-180257131-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-180257131-1');
+</script>
+<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> 
 	<style type="text/css"> 
 section {
     padding: 60px 0; 
